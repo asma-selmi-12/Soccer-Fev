@@ -1,0 +1,7 @@
+.win{ color: green;
+font-size: 60px;}
+.loser{color: blue;
+    font-size: 40px;}
+
+.draw{color: yellow;
+    font-size: 20px;}

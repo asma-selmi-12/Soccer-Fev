@@ -1,0 +1,38 @@
+<app-banner [titre]="'Teams'"></app-banner>
+<div class="site-section bg-dark mt-5">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-lg-6 " *ngFor="let t of teams">
+          <div class="widget-next-match " >
+            <div class="widget-title">
+              <h3>{{t.name}}</h3>
+            </div>
+            <div class="widget-body mb-3">
+              <div class="widget-vs">
+                <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
+                  <div class="team-1 text-center">
+                    <img src="assets/images/logo_1.png" alt="Image">
+                    <h3> {{t.country}}</h3>
+                  </div>
+                  
+                 
+                </div>
+              </div>
+            </div>
+      
+            <div class="text-center widget-vs-contents mb-4" >
+             <h4>Players</h4> 
+              <p class="mb-5">
+                <span class="d-block" *ngFor="let p of t.players"><h4>{{p.playerName}}</h4></span>
+                
+                
+              </p>
+      
+              <div id="date-countdown2" class="pb-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+</div>

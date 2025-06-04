@@ -1,0 +1,82 @@
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close">
+      <span class="icon-close2 js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar py-4" role="banner">
+  <div class="container">
+    <div class="d-flex align-items-center">
+      <div class="site-logo">
+        <a href="index.html">
+          <img src="assets/images/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <div class="ml-auto">
+        <nav
+          class="site-navigation position-relative text-right"
+          role="navigation"
+        >
+          <ul
+            class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block"
+          >
+            <li > <a routerLink="/"routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"class="nav-link">Home</a > </li>
+            <li *ngIf="isloged()&& connectedUser.role=='admin'">
+              <div class="dropdown">
+                <button
+                  class="btn btn-info dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false" > Admin</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a class="dropdown-item" routerLink="/add-match">
+                      Add-match</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" routerLink="/add-team">Add Team</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" routerLink="/add-players"  >Add Player</a> </li>
+                </ul>
+              </div>
+            </li>
+            <li *ngIf="isloged()&& connectedUser.role=='admin'"><a  routerLink="/dashbord" routerLinkActive="active"class="nav-link" >Dashbord</a ></li>
+
+            <!-- <li ><a routerLink="/add-match" routerLinkActive="active" class="nav-link">Add-match</a></li>  -->
+
+            <!-- <li ><a routerLink="/tabel-matches" routerLinkActive="active" class="nav-link">Table-matches</a></li> -->
+            <!-- <li ><a routerLink="/add-team"   routerLinkActive="active"class="nav-link">Add-Team</a></li> -->
+            <!-- <li ><a routerLink="/table-teams"  routerLinkActive="active" class="nav-link">Table-Team</a></li> -->
+            <!-- <li ><a routerLink="/add-players"  routerLinkActive="active" class="nav-link">Add-Players</a></li> -->
+            <!-- <li ><a routerLink="/table-players"  routerLinkActive="active" class="nav-link">Table-Players</a></li> -->
+            <li *ngIf="!isloged()"><a routerLink="/signup" routerLinkActive="active" class="nav-link" >Sign Up</a></li>
+            <li *ngIf="!isloged()"><a routerLink="/login" routerLinkActive="active" class="nav-link">Login Up</a >  </li>
+            <li *ngIf="isloged() &&connectedUser.role=='user'"> <a routerLink="/matches"routerLinkActive="active"class="nav-link" >Matches</a ></li>
+            <li *ngIf="isloged() &&connectedUser.role=='user'" >
+              <a  routerLink="/card-team" routerLinkActive="active" class="nav-link">Card Team</a></li>
+
+            <!-- <li isloged()><a routerLink="/occurence" routerLinkActive="active"  class="nav-link">Occurence</a></li> -->
+            <!-- <li isloged()><a routerLink="/tab" routerLinkActive="active"  class="nav-link">tableau</a></li> -->
+            <li *ngIf="isloged() &&connectedUser.role=='user'"> <a routerLink="/card-player"routerLinkActive="active"class="nav-link" >card players</a ></li>
+
+            <li> <a routerLink="/contact"routerLinkActive="active"class="nav-link">Contact</a ></li>
+              <li *ngIf="isloged()"> <a class="nav-link">{{connectedUser.userName}}</a ></li>
+
+              <li *ngIf="isloged()"> <a  (click)="logout()" class="nav-link">log out</a ></li>
+          </ul>
+        </nav>
+
+        <a
+          href="#"
+          class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"
+          ><span class="icon-menu h3 text-white"></span
+        ></a>
+      </div>
+    </div>
+  </div>
+</header>

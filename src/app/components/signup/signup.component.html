@@ -1,0 +1,52 @@
+
+<app-banner [titre]="'SignUp ' + role"></app-banner>
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+    
+          <form [formGroup]="signupForm" >
+            <div class="form-group">
+              <input type="text" class="form-control"  formControlName="firstName" placeholder="first name">
+              <div class="text-danger" *ngIf="signupForm.controls['firstName'].invalid &&(signupForm.controls['firstName'].dirty || signupForm.controls['firstName'].touched)">
+                <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']"> Must have 3 caracters</div>
+                <div  *ngIf="signupForm.controls['firstName'].errors?.['required']">required*</div>
+            </div>
+            </div>
+            <div class="form-group">
+              <input type="text"  class="form-control" formControlName="lastName"   placeholder="last name">
+              <div class="text-danger" *ngIf="signupForm.controls['lastName'].invalid &&(signupForm.controls['lastName'].dirty || signupForm.controls['lastName'].touched)">
+                <div *ngIf="signupForm.controls['lastName'].errors?.['pattern']"> Format invalid</div>
+                <div  *ngIf="signupForm.controls['lastName'].errors?.['required']">Last Name required*</div>
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="email"  class="form-control" formControlName="email"  placeholder="Email">
+                <div class="text-danger" *ngIf="signupForm.controls['email'].invalid &&(signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+                    <div *ngIf="signupForm.controls['email'].errors?.['email']"> Format invalid</div>
+                    <div  *ngIf="signupForm.controls['email'].errors?.['required']">Email required*</div>
+                </div>
+              </div>
+            <div class="form-group">
+              <input type="password"  class="form-control" formControlName="pwd"  placeholder="PWD">
+              <div class="text-danger" *ngIf="signupForm.controls['pwd'].invalid &&(signupForm.controls['pwd'].dirty || signupForm.controls['pwd'].touched)">
+                <div *ngIf="signupForm.controls['pwd'].errors?.['pattern']"> Password invalid</div>
+                <div  *ngIf="signupForm.controls['pwd'].errors?.['required']"> Password required*</div>
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="password"  class="form-control" formControlName="confirmPwd"  placeholder="Confirm PWD">
+                <div class="text-danger" *ngIf="signupForm.controls['confirmPwd'].invalid &&(signupForm.controls['confirmPwd'].dirty || signupForm.controls['confirmPwd'].touched)">
+                    <div *ngIf="signupForm.controls['confirmPwd'].errors?.['mustMatch']"> password invalid</div>
+                    
+                </div>
+              </div>
+            <div class="form-group "  >
+              <input type="button" class="btn btn-primary py-3 px-5" (click)="signUp()" value="Sign Up">
+            </div>
+          </form>  
+        </div>
+        
+      </div>
+    </div>
+  </div>

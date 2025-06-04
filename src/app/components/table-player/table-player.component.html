@@ -1,0 +1,39 @@
+
+  <div class="col-lg-12">
+            
+    <div class="widget-next-match">
+      <h3 class="mt-5 text-center">Players</h3>
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+
+            <th>Name Player</th>
+            <th>Post</th>
+            <th>Number</th>
+            <th>Team name</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of players" appHilight >
+            <td>
+              <img [src]="p.img" alt="" width="100px">
+            </td>
+
+            <td><strong class="text-white">{{p.playerName}}</strong></td>
+            <td><strong class="text-white">{{p.post}}</strong></td>
+            <td>{{p.playerNumber}}</td>
+            <td>{{p.idTeams.name}}</td>
+            <td><button type="button" (click)="deletPlayer(p._id)" class="btn btn-danger"> Delete</button>
+              <button type="button" (click)="editPlayer(p._id,'/edit-players/')" class="btn btn-warning"> Edit</button>
+            </td>
+
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+  </div>

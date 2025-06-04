@@ -1,0 +1,22 @@
+
+<app-banner [titre]="'Tableau'"></app-banner>
+
+<div class="col-lg-12">
+    <form   (ngSubmit)="InserTab()">
+      <div class="form-group mt-2">
+        <input type="text" [(ngModel)]="val"  class="form-control" name="a" placeholder="la valeur">
+      </div>
+     
+      <div class="form-group mt-2">
+        <input type="text"  [(ngModel)]="pos" class="form-control" name="b" placeholder="position">
+      </div>
+        
+      <div >
+        <input type="submit" class="btn btn-primary py-3 px-5"  value="insertion">
+      </div>
+      <div>
+        {{t | insertion :','}}
+        
+      </div>
+    </form>  
+  </div>

@@ -1,0 +1,73 @@
+<div
+  class="hero overlay"
+  style="background-image: url('assets/images/bg_3.jpg')"
+>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="text-white">Edir-matches</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="d-flex team-vs">
+        <span class="score">
+          <span
+            [ngStyle]="{ color: compare(match.scorOne, match.scorTwo)[1] }"
+            >{{ match.scorOne }}</span
+          >-
+          <span
+            span
+            [ngStyle]="{ color: compare(match.scorTwo, match.scorOne)[1] }"
+            >{{ match.scorTwo }}</span
+          ></span
+        >
+        <div class="team-1 w-50">
+          <div class="team-details w-100 text-center">
+            <img src="assets/images/logo_1.png" alt="Image" class="img-fluid" />
+            <h3
+              [ngClass]="{
+                win: compare(match.scorOne, match.scorTwo)[0] == 'win',
+                loser: compare(match.scorOne, match.scorTwo)[0] == 'loser',
+                draw: compare(match.scorOne, match.scorTwo)[0] == 'draw'
+              }"
+            >
+              {{ match.teamOne }}
+              <span>({{ compare(match.scorOne, match.scorTwo)[0] }})</span>
+            </h3>
+            <ul class="list-unstyled">
+              <li>Anja Landry (7)</li>
+              <li>Eadie Salinas (12)</li>
+              <li>Ashton Allen (10)</li>
+              <li>Baxter Metcalfe (5)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="team-2 w-50">
+          <div class="team-details w-100 text-center">
+            <img src="assets/images/logo_2.png" alt="Image" class="img-fluid" />
+            <h3
+              [ngClass]="{
+                win: compare(match.scorTwo, match.scorOne)[0] == 'win',
+                loser: compare(match.scorTwo, match.scorOne)[0] == 'loser',
+                draw: compare(match.scorTwo, match.scorOne)[0] == 'draw'
+              }"
+            >
+              {{ match.teamTwo
+              }}<span>({{ compare(match.scorTwo, match.scorOne)[0] }})</span>
+            </h3>
+            <ul class="list-unstyled">
+              <li>Macauly Green (3)</li>
+              <li>Arham Stark (8)</li>
+              <li>Stephan Murillo (9)</li>
+              <li>Ned Ritter (5)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
